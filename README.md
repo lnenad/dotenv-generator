@@ -93,7 +93,14 @@ The following recording demonstrates this:
 
 ### How to use dotenv-generator
 
-Ideally your project should use `npx dotenv-generator` as a `postinstall` action. This means that after installation of your package, `dotenv-generator` will be run. This allows for a seamless setup of your project. Don't forget to include an `.env.example` file with descriptions of your fields.
+Ideally your project should use `dotenv-generator` as a `postinstall` action. This means that after installation of your package, `dotenv-generator` will be run. This allows for a seamless setup of your project. Don't forget to include an `.env.example` file with descriptions of your fields in the root directory, or anywhere else but then specifying `-f inputFilePath`.
+
+Available parameters are:
+  * -f, --file <env-template-file> - The environment file name to be used as an example
+  * -o, --output <env-output-file> - The environment file name to be used as an output
+  * -d, --debug - A flag to enable writing debug output to stdout
+
+After completed installation your package folder inside of `node_modules` will contain a `.env` file with the provided values that your package can then use.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
