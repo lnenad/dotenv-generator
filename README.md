@@ -50,7 +50,7 @@ This should make that process smoother by making it interactive leaving less roo
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The project is very simple to setup, clone and run `yarn` to install dependencies. To run the project execute `yarn start`. You should have an example env file (default `env.example`) that will be used to generate the setup flow. It shouldn't be anything special so if you already have it chances are you can use it with `env-generator`. You can also use comments ("#") to provide a description for the env value. By default you can put comments above the variable to describe it, or you can use an inline comment after the variable and the default value. 
+The project is very simple to setup, clone and run `yarn` to install dependencies. To run the project execute `yarn start`. You should have an example env file (default `env.example`) that will be used to generate the setup flow. It shouldn't be anything special so if you already have it chances are you can use it with `dotenv-generator`. You can also use comments ("#") to provide a description for the env value. By default you can put comments above the variable to describe it, or you can use an inline comment after the variable and the default value. 
 
 ### Installation
 
@@ -91,13 +91,11 @@ The following recording demonstrates this:
 
 [![asciicast](https://asciinema.org/a/598649.svg)](https://asciinema.org/a/598649)
 
-### How to use env-generator
+### How to use dotenv-generator
 
-Ideally your project should use `env-generator` as a `postinstall` action. This means that after installation of your package, `env-generator` will be run. This allows for a seamless setup of your project. Don't forget to include an `.env.example` file with descriptions of your fields. 
+Ideally your project should use `npx dotenv-generator` as a `postinstall` action. This means that after installation of your package, `dotenv-generator` will be run. This allows for a seamless setup of your project. Don't forget to include an `.env.example` file with descriptions of your fields.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 
 <!-- CONTRIBUTING -->

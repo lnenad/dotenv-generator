@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { program } from "commander";
 import { parseFile } from "./parser.js";
 import { generateQuestions, generateEnv } from "./generator.js";

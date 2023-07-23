@@ -1,18 +1,20 @@
 {
-  "name": "env-generator",
-  "version": "0.1.0",
+  "name": "dotenv-generator",
+  "version": "0.1.2",
   "description": "Creates an env file from a template or an example .env file",
-  "main": "lib/src/index.js",
+  "main": "lib/index.js",
+  "bin": "lib/index.js",
   "type": "module",
   "scripts": {
-    "prepublish": "tsc",
+    "prepare": "tsc",
     "start": "node lib/index.js",
     "test": "npx jest",
     "coverage": "npx jest --coverage"
   },
-  "files": ["lib/**/*"],
+  "files": ["lib/generator.js","lib/parser.js","lib/validators.js","lib/index.js"],
   "keywords": [
     "env",
+    "dotenv",
     "generator",
     "environment",
     "setup",
