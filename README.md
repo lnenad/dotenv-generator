@@ -39,7 +39,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![asciicast](https://asciinema.org/a/598648.svg)](https://asciinema.org/a/598648)
 
 I hate having to manually think about setting up my `.env` files every time I have to bring up a new project without understanding any of the keys. Installing new packages also kind of implies that you manually go through the process to make and also understand the `.env` file that you need to have in order for the package to run successfully. 
 
@@ -50,7 +50,7 @@ This should make that process smoother by making it interactive leaving less roo
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The project is very simple to setup, clone and run `yarn` to install dependencies. To run the project execute `yarn start`.
+The project is very simple to setup, clone and run `yarn` to install dependencies. To run the project execute `yarn start`. You should have an example env file (default `env.example`) that will be used to generate the setup flow. It shouldn't be anything special so if you already have it chances are you can use it with `env-generator`. You can also use comments ("#") to provide a description for the env value. By default you can put comments above the variable to describe it, or you can use an inline comment after the variable and the default value. 
 
 ### Installation
 
@@ -65,7 +65,35 @@ Run `yarn test` to execute tests. To generate coverage run `yarn coverage`
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Example env file
+
+```env
+# Comment that will be applied as description to the variable after it
+PUBLIC=STRINGY
+# Comment that will override the inline comment
+BOOLEAN=true # Inline comment that will be overriden that you can use for additional info but not for setup
+NUMBEROO=2
+SECRETSTUFF=bar # Inline comment that will be displayed during setup
+SECRET=2
+# Comment that will be ignored
+```
+
+With the given example file the setup flow would be as following:
+
+* The first value would have the description as the first line comment for the value "PUBLIC" with the default value of "STRINGY". Enter applies the default value.
+* The second value would have the description of the third line comment for the value "BOOLEAN" with the default value of "true". Only boolean values would be accepted here.
+* The third value would have the generated description and it would look like this "Enter the value, type number, for NUMBEROO: 2". Only numbers would be accepted here.
+* The fourth value would have the description of the inline comment for the value "SECRETSTUFF" with the default value of "bar".
+* The last value would have the generated description.
+* The last line comment would be ignored and wouldn't impact the setup.
+
+The following recording demonstrates this:
+
+[![asciicast](https://asciinema.org/a/598649.svg)](https://asciinema.org/a/598649)
+
+### How to use env-generator
+
+Ideally your project should use `env-generator` as a `postinstall` action. This means that after installation of your package, `env-generator` will be run. This allows for a seamless setup of your project. Don't forget to include an `.env.example` file with descriptions of your fields. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
