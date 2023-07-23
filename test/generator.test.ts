@@ -3,8 +3,10 @@ import * as generators from "../src/generator";
 describe("generating questions", () => {
     test("generating single question for string input", () => {
         const questions = generators.generateQuestions({
+            comments: {},vars: {
             TEST_KEY: "TEST_VALUE"
-        })
+            }
+        });
 
         expect(questions.length).toEqual(1);
         expect(questions[0]).toMatchObject(
@@ -19,7 +21,9 @@ describe("generating questions", () => {
     })
     test("generating single question for number input", () => {
         const questions = generators.generateQuestions({
+            comments: {},vars: {
             TEST_KEY: 2
+            }
         })
 
         expect(questions.length).toEqual(1);
@@ -36,7 +40,9 @@ describe("generating questions", () => {
     test("generating single question for list input", () => {
         const choices = ["ONE", "TWO", "THREE"];
         const questions = generators.generateQuestions({
+            comments: {},vars: {
             TEST_KEY: choices
+            }
         })
 
         expect(questions.length).toEqual(1);
@@ -52,7 +58,9 @@ describe("generating questions", () => {
     })
     test("generating single question for boolean input", () => {
         const questions = generators.generateQuestions({
+            comments: {},vars: {
             TEST_KEY: true
+            }
         })
 
         expect(questions.length).toEqual(1);
@@ -69,10 +77,12 @@ describe("generating questions", () => {
     test("generating multiple questions for different inputs", () => {
         const choices = ["ONE", "TWO", "THREE"];
         const questions = generators.generateQuestions({
+            comments: {},vars: {
             TEST_KEY: true,
             TEST_KEY_TWO: choices,
             TEST_KEY_THREE: 2,
             TEST_KEY_FOUR: "TEST_VALUE",
+            }
         });
 
         expect(questions.length).toEqual(4);

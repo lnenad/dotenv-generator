@@ -1,6 +1,10 @@
-import * as validators from "./validators";
+import * as validators from "./validators.js";
+import { EnvironmentData } from "./parser.js";
 
-export const generateQuestions = env => {
+export const generateQuestions = (data: EnvironmentData) => {
+    const env = data.vars;
+    const comments = data.comments;
+
     return Object.keys(env).map(key => {
         let typ = typeof env[key];
         let isArray = false;
@@ -12,7 +16,7 @@ export const generateQuestions = env => {
         }
 
         return {
-            type: ((typ, isArray) => {
+            type: ((_typ, isArray) => {
                 if (isArray) {
                     return "list";
                 }
@@ -43,12 +47,12 @@ export const generateQuestions = env => {
                 }
                 return value !== undefined ? env[key] : null;
             })(env[key]),
-            message: `Enter the value, type ${typ}, for ${key}:`
+            message: comments[key] ? comments[key] : `Enter the value, type ${typ}, for ${key}:`
         }
     });
 }
 
-export const generateEnv = obj => {
+export const generateEnv = (obj: {[key: string]: any}): string => {
     return Object.keys(obj).reduce((acc, key) => {
         return acc + `${key}=${obj[key]}\n`;
     }, "")

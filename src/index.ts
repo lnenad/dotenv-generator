@@ -1,25 +1,24 @@
 import { program } from "commander";
-import { version } from "../package.json";
-import { parseFile } from "./parser";
-import { generateQuestions, generateEnv } from "./generator";
-import inquirer = require('inquirer');
+import { parseFile } from "./parser.js";
+import { generateQuestions, generateEnv } from "./generator.js";
+import inquirer from 'inquirer';
 import { readFileSync, writeFileSync } from "fs";
 
 const DEFAULT_FILE = ".env.example";
 const DEFAULT_OUTPUT = ".env";
 
 program
-  .version(version)
+  .version("0.1.0")
   .option("-f, --file <env-template-file>", "the environment file name to be used as an example")
   .option("-o, --output <env-output-file>", "the environment file name to be used as an output")
   .option("-d, --debug", "flag whether to write debug output to stdout")
   .action(async options => {
-    console.log(`Env-generator version ${version}`);
+    console.log(`\x1b[100m\x1b[1m\x1b[35mEnv-generator version ${"0.1.0"}\x1b[0m`);
 
     const file = options.file || DEFAULT_FILE;
     const output = options.output || DEFAULT_OUTPUT;
-    console.log(`Template file: ${file}`);
-    console.log(`Output file: ${output}`);
+    console.log(`Template file: \x1b[32m${file}\x1b[0m`);
+    console.log(`Output file: \x1b[32m${output}\x1b[0m`);
     const exampleEnv = parseFile(readFileSync, file);
     if (exampleEnv instanceof Error) {
       console.log(`Error while parsing template file:\n${exampleEnv.toString()}`);

@@ -2,12 +2,15 @@
   "name": "env-generator",
   "version": "0.1.0",
   "description": "Creates an env file from a template or an example .env file",
-  "main": "src/index.js",
+  "main": "lib/src/index.js",
+  "type": "module",
   "scripts": {
-    "start": "npx ts-node src/index.ts",
+    "prepublish": "tsc",
+    "start": "node lib/index.js",
     "test": "npx jest",
     "coverage": "npx jest --coverage"
   },
+  "files": ["lib/**/*"],
   "keywords": [
     "env",
     "generator",

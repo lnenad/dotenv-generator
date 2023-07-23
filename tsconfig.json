@@ -1,7 +1,11 @@
 {
     "compilerOptions": {
         "resolveJsonModule": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "target": "ES6",
+        "outDir": "lib",
+        "moduleResolution": "Node"
     },
-    "module": "commonjs"
+    "module": "commonjs",
+    "include": ["src/**/*"]
 }
