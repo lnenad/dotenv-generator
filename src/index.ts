@@ -10,12 +10,12 @@ const DEFAULT_FILE = ".env.example";
 const DEFAULT_OUTPUT = ".env";
 
 program
-  .version("0.1.0")
+  .version("0.1.5")
   .option("-f, --file <env-template-file>", "the environment file name to be used as an example")
   .option("-o, --output <env-output-file>", "the environment file name to be used as an output")
   .option("-d, --debug", "flag whether to write debug output to stdout")
   .action(async options => {
-    console.log(`\x1b[100m\x1b[1m\x1b[35mEnv-generator version ${"0.1.0"}\x1b[0m`);
+    console.log(`\x1b[100m\x1b[1m\x1b[35mEnv-generator version ${"0.1.5"}\x1b[0m`);
 
     const file = options.file || DEFAULT_FILE;
     const output = options.output || DEFAULT_OUTPUT;

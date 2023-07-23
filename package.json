@@ -1,6 +1,6 @@
 {
   "name": "dotenv-generator",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Creates an env file from a template or an example .env file",
   "main": "./lib/index.js",
   "bin": "./lib/index.js",
