@@ -1,20 +1,20 @@
-import { parseComments, parseFile } from "../src/parser";
+import { parseComments } from "../src/parser";
 
 test("comment whole line", () => {
-  let result = parseComments(`# This is a comment
+  const result = parseComments(`# This is a comment
 SECRET_KEY=YOURSECRETKEYGOESHERE`);
 
   expect(result["SECRET_KEY"]).toEqual("This is a comment");
 });
 
 test("inline comment", () => {
-  let result = parseComments(`SECRETO=REALLYSECRET # Commentier`);
+  const result = parseComments(`SECRETO=REALLYSECRET # Commentier`);
 
   expect(result["SECRETO"]).toEqual("Commentier");
 });
 
 test("multiple scenarios", () => {
-  let result = parseComments(`C=E
+  const result = parseComments(`C=E
 # This is a comment
 SECRET_KEY=23123
 # This should have priority
