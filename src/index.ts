@@ -8,9 +8,10 @@ import { generateQuestions, generateEnv } from "./generator.js";
 
 const DEFAULT_FILE = ".env.example";
 const DEFAULT_OUTPUT = ".env";
+const VERSION = "0.1.8";
 
 program
-  .version("0.1.7")
+  .version(VERSION)
   .option(
     "-f, --file <env-template-file>",
     "the environment file name to be used as an example",
@@ -37,7 +38,7 @@ Replace {name_of_the_package} with the name of the package that you are trying t
       }
     }
     console.log(
-      `\x1b[100m\x1b[1m\x1b[35mEnv-generator version ${"0.1.7"}\x1b[0m`,
+      `\x1b[100m\x1b[1m\x1b[35mEnv-generator version ${VERSION}\x1b[0m`,
     );
 
     const file = options.file || DEFAULT_FILE;
