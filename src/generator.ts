@@ -1,5 +1,5 @@
-import * as validators from "./validators";
-import { EnvironmentData } from "./parser";
+import * as validators from "./validators.js";
+import { EnvironmentData } from "./parser.js";
 
 export const generateQuestions = (data: EnvironmentData) => {
   const env = data.vars;

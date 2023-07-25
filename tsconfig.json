@@ -4,8 +4,7 @@
         "esModuleInterop": true,
         "target": "ES6",
         "outDir": "lib",
-        "moduleResolution": "Node",
-        "module": "CommonJS"
+        "moduleResolution": "Node"
     },
     "include": ["src/**/*"]
 }
