@@ -95,9 +95,17 @@ The following recording demonstrates this:
 
 The easiest way to use this package is to run it (Duh). You can add a `configure` script to your package.json file that runs `dotenv-generator`. If you want users to execute this script let them know by asking them to perform this after installation `npm explore {name_of_the_package} -- npm run configure`.
 
+#### Postinstall
+
 Ideally your project should use `dotenv-generator --postinstall` as a `postinstall` action. This means that after installation of your package, `dotenv-generator` will be run. This allows for a seamless setup of your project that will magically happen after installation. Since this is not an ideal world npm 6+ **doesn't play nice** with interactive `postinstall` hooks so I've added a check for that if you include the `--postinstall` flag it will check the npm version and for npm 6+ the script won't execute the interactive flow.It will instead print a message saying that the configuration could be done by executing `npm explore {name_of_the_package} -- npm run postinstall`. To view this output you must include `--foreground-scripts` as a flag for package installation ie. `npm i --foreground-scripts`.
 
 Don't forget to include an `.env.example` file with descriptions of your fields in the root directory, or anywhere else but then specifying `-f inputFilePath`.
+
+#### Global
+
+You can also install this package globally by running `npm i -g dotenv-generator`. After this you can use `dotenv-generator` anywhere. This makes it really simple to setup multiple projects without having to worry about the generator being a dependency. 
+
+#### Parameters
 
 Available parameters are:
   * -f, --file <env-template-file> - The environment file name to be used as an example
